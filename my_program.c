@@ -1,64 +1,47 @@
-// STACK
-
+// STACK IMPLEMENTATION BY PANKAJ SHARMA
 #include <stdio.h>
-#include <conio.h>
+#include<conio.h>
 
+int stacks[5];
+int tracker = -1;
 
-int flat[5];
-int tracker = NULL;
-
-int push(int x)
-{
+int push(int x) {
     
-    if (tracker > 4)
-    {
-        printf("STACK OVERFLOW \n \n");
+    if (tracker > 4) {
+        
+        printf("STACK OVERFLOW :)");
         return 0;
     }
-
-    // printf("%d \n", tracker);
-
-    flat[tracker] = x;
+    
     tracker++;
+    stacks[tracker] = x;
+
     
     return 1;
-    
 }
 
-void pop()
-{
+
+void pop() {
     
-    if (tracker == NULL)
-    {
-        printf("STACK EMPTY \n \n");
+    if (tracker == -1) {
+        printf("STACK IS EMPTY");
         return;
+    }
+
+    return tracker--;
+}
+
+void print_stack() {
+    
+    int t = tracker;
+    
+    for (int i = tracker; i >= 0; i--) {
         
-    } else {
-        tracker--;    
-    }
-    
-}
-
-void print_stack()
-{
-   if (tracker > 5)
-    {
-        printf("STACK OVERFLOW \n \n");
-        return;
-    }
-    
-    // printf("%d", flat[0]);
-    
-    int t = tracker - 1;
-    
-    
-    while(t != -1)
-    {
-
-        printf("%d", flat[t]);
+        printf("%d", stacks[i]);
         printf("\t");
-        t--;
     }
+    
+    printf("\n");
 }
 
 int isEmpty()
