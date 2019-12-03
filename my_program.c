@@ -71,8 +71,84 @@ int main()
 }
 
 
+            ******************************************************************************************************************
 
 
+
+// QUEUE Impelmentation BY Pankaj Sharma
+#include<stdio.h>
+#include<conio.h>
+
+#define MAX 5
+
+int queue[MAX];
+int front = -1;
+int rear = -1;
+
+
+void insert(int item) {
+    if (rear == MAX - 1) {
+        printf("QUEUE IS OVERFLOW");
+        return;
+    }
+
+    else {
+
+        if (front == -1) {
+            front = 0;
+        }
+
+        rear++;
+        queue[rear] = item;
+        return;
+    }
+}
+
+void delete() {
+
+    if (front == -1 || front > rear){
+        printf("QUEUE IS UNDERFLOW");
+    }
+
+    front++;
+    return;
+}
+
+
+void display() {
+
+    if (front == -1) {
+        printf("QUEUE IS EMPTY");
+        return;
+    }
+
+    for (int i = front; i <= rear; i++) {
+
+        printf("%d", queue[i]);
+        printf("\t");
+    }
+
+    printf("\n");
+}
+
+
+
+ 
+
+
+void main() {
+
+    insert(1);
+    insert(5);
+    insert(6);
+    delete();
+    insert(8);
+    insert(3);
+    delete();
+    display();
+
+    getch();
+}
 
 
 
